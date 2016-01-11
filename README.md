@@ -89,6 +89,24 @@ In this repository there is an implementation of wieghted indegree for directed 
 
 ## b.) Install with tox automatically
 
+   * Use the following _tox.ini_ file:
+   
+   ```ini
+   [tox]
+   envlist = tox_example_env,tox_2-7-10
+   [testenv]
+   deps =
+       pytest
+       numpy
+	   networkx
+   commands = py.test
+   ```
+   * With the above file _tox_ install all modules __automatically__ when we run the following command:
+   
+   ```bash
+   cd tox-example
+   tox
+   ```  
 
 
 
