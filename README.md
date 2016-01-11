@@ -9,62 +9,73 @@ In this repository there is an implementation of wieghted indegree for directed 
 
 # Prerequisites
 
-   1. install python 2.7.9:
+   1. install python 2.7.9 and 2.7.10:
    
    ```bash
    pyenv install 2.7.9
+   pyenv install 2.7.10
    ```
    
-   2. create a new virtualenv named __tox_example_env__:
+   2. create two new virtualenvs with names __tox_example_env__ and __tox_2-7-10__:
 
    ```bash
    pyenv virtualenv 2.7.9 tox_example_env
+   pyenv virtualenv 2.7.10 tox_2-7-10
+   pyenv virtualenvs
    ```
    
-   3. install [tox](https://pypi.python.org/pypi/tox) and [tox-pyenv](https://pypi.python.org/pypi/tox-pyenv) into the new environment:
+   3. install [tox](https://pypi.python.org/pypi/tox) and [tox-pyenv](https://pypi.python.org/pypi/tox-pyenv) in both environments:
 
    ```bash
    pyenv activate tox_example_env
    pip install tox tox-pyenv
+   pyenv activate tox_2-7-10
+   pip install tox tox-pyenv
+   pyenv deactivate
    ``` 
 
-   4. After cloning the repository set __tox_example_env__ as local pyenv environment:
+   4. After cloning the repository set __tox_example_env__ and __tox_2-7-10__  as local pyenv environments:
    
    ```bash
    cd tox-example
-   pyenv local tox_example_env
+   pyenv local tox_example_env tox_2-7-10
    ```
 
 # Dependencies and testing
 
-__TODO: create different branches for the 2 case!!!__
-
 ## a.) Install with pip manually
 
-   * These python modules are needed for this repository:
+   * These python modules have to be installed in both environments:
    
    ```bash
    pyenv activate tox_example_env
    pip install networkx numpy pytest
+   pyenv activate tox_2-7-10
+   pip install networkx numpy pytest
+   pyenv deactivate   
    ```
    
-   It is __IMPORTANT__ to install __pytest__ here! Later running tests might not work.
+   Especially __pytest__, otherwise _py.test_ command will call for _pytest_ installed in an other environment!
    
    * Use the following _tox.ini_ file:
    ```ini
    [tox]
-   envlist = tox_example_env
+   envlist = tox_example_env,tox_2-7-10
    [testenv]
    commands = py.test
    ```
    
    * Then you can run tests:
    
-   __By pytest :__ It will work only with the selected pyenv environment
+   __By pytest :__ It will work only with a selected pyenv environment:
      
    ```bash
    cd tox-example
-   py.test  
+   pyenv activate tox_example_env
+   py.test
+   pyenv activate tox_2-7-10
+   py.test
+   pyenv deactivate 
    ```
    
    __By tox :__ It can handle run tests for multiple pyenv environments as well
@@ -73,6 +84,7 @@ __TODO: create different branches for the 2 case!!!__
    cd tox-example
    tox
    ```   
+   In this case, you will get _WARNINGS_ because there was no __deps__ key specified under __[testenv]__ in the _tox.ini_ file.
    
 
 ## b.) Install with tox automatically
