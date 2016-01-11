@@ -57,7 +57,7 @@ In this repository there is an implementation of wieghted indegree for directed 
    
    Especially __pytest__, otherwise _py.test_ command will call for _pytest_ installed in an other environment!
    
-   * Use the following _tox.ini_ file:
+   * Use the following [_tox.ini_](https://github.com/ferencberes/tox-example/blob/install_with_pip/tox.ini) file:
    ```ini
    [tox]
    envlist = tox_example_env,tox_2-7-10
@@ -89,7 +89,7 @@ In this repository there is an implementation of wieghted indegree for directed 
 
 ## b.) Install with tox automatically
 
-   * Use the following _tox.ini_ file:
+   * Use the following [_tox.ini_](https://github.com/ferencberes/tox-example/blob/master/tox.ini) file:
    
    ```ini
    [tox]
@@ -107,6 +107,3 @@ In this repository there is an implementation of wieghted indegree for directed 
    cd tox-example
    tox
    ```  
-
-
-
