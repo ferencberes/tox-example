@@ -5,7 +5,7 @@ Small python project example with [tox](https://testrun.org/tox/latest/), [pyenv
 
 # Information
 
-In this repository there is an implementation of wieghted indegree for directed graphs based on [NetworkX](https://networkx.github.io/), which will be tested by [pytest](http://pytest.org/latest/) in multiple [pyenv](https://github.com/yyuu/pyenv) environments.
+In this repository there is an implementation of weighted indegree for directed graphs based on [NetworkX](https://networkx.github.io/), which will be tested by [pytest](http://pytest.org/latest/) in multiple [pyenv](https://github.com/yyuu/pyenv) environments.
 
 # Prerequisites
 
